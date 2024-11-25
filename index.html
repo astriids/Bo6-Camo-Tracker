@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPAL Camo Tracker</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .counter {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #444;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 1.2em;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.5);
+    }
+    .category {
+      margin-top: 20px;
+      font-size: 1.2em;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter" id="counter">13/33</div>
+  <div class="container">
+    <h1>OPAL Camo Tracker</h1>
+    <p>Check off the weapons you've completed. Progress is saved in your browser!</p>
+    <div id="tracker">
+      <!-- Checklist categories and items will be inserted here -->
+    </div>
+  </div>
+
+  <script>
+    const weapons = {
+      "Marksman Rifles": ["AEK", "Swat 5.56", "Tsarkov", "DM-10"],
+      "Assault Rifles": ["XM4", "AK-47", "AMES", "GPR91", "Model L", "Goblin MK2", "AS VAL"],
+      "SMG": ["C9", "KSV", "Tanto .22", "PP-919", "Jakal", "Kompakt"],
+      "Shotguns": ["Marine", "ASG 89"],
+      "LMG's": ["PU-21", "XMG", "GPMG"],
+      "Snipers": ["LW3A1 Frostline", "SVD", "LR 7.62"],
+      "Pistols": ["9mm PM", "GS45", "S
