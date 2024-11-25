@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OPAL Camo Tracker</title>
+  <title>Weapon Checklist</title>
   <style>
     body {
       background-color: #1a1a1a;
@@ -20,17 +20,13 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
-    h1, h2 {
+    h1 {
       text-align: center;
     }
-    .counter {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background-color: #444;
-      padding: 10px 20px;
-      border-radius: 20px;
+    .category {
+      margin-top: 20px;
       font-size: 1.2em;
+      text-decoration: underline;
     }
     ul {
       list-style-type: none;
@@ -45,20 +41,13 @@
       margin-right: 10px;
       transform: scale(1.5);
     }
-    .category {
-      margin-top: 20px;
-      font-size: 1.2em;
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
-  <div class="counter" id="counter">13/33</div>
   <div class="container">
-    <h1>OPAL Camo Tracker</h1>
-    <p>Check off the weapons you've completed. Progress is saved in your browser!</p>
-    <div id="tracker">
-      <!-- Checklist categories and items will be inserted here -->
+    <h1>Weapon Checklist</h1>
+    <div id="checklist">
+      <!-- Checklist categories and items will go here -->
     </div>
   </div>
 
@@ -70,4 +59,37 @@
       "Shotguns": ["Marine", "ASG 89"],
       "LMG's": ["PU-21", "XMG", "GPMG"],
       "Snipers": ["LW3A1 Frostline", "SVD", "LR 7.62"],
-      "Pistols": ["9mm PM", "GS45", "S
+      "Pistols": ["9mm PM", "GS45", "Stryder", "Grekhova"],
+      "Launchers": ["HE-1", "Cigma"]
+    };
+
+    const checklistDiv = document.getElementById('checklist');
+
+    function createChecklist() {
+      Object.keys(weapons).forEach(category => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('category');
+        categoryDiv.textContent = category;
+        checklistDiv.appendChild(categoryDiv);
+
+        const ul = document.createElement('ul');
+        weapons[category].forEach(weapon => {
+          const li = document.createElement('li');
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+
+          const label = document.createElement('label');
+          label.textContent = weapon;
+
+          li.appendChild(checkbox);
+          li.appendChild(label);
+          ul.appendChild(li);
+        });
+        checklistDiv.appendChild(ul);
+      });
+    }
+
+    createChecklist();
+  </script>
+</body>
+</html>
